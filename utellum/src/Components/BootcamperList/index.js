@@ -3,6 +3,10 @@ import BootcamperItem from '../BootcamperItem'
 
 export function BootcamperList(props){
     console.log("bootcamper Array", props.bootcamperArray)
+    
+    
+
+
     return(
         <div>
             {props.bootcamperArray.map(

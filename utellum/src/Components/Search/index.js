@@ -1,11 +1,11 @@
 import React from 'react'
 import './Search.css'
 
-export function Search(){
+export function Search({inputHandler}){
     return(
         <div className='search'>
-            <input className='input'></input>
-            <button onClick="">Search</button>
+            <input onChange={inputHandler} className='input'></input>
+            {/* <button >Search</button> */}
         </div>
     )
 }
