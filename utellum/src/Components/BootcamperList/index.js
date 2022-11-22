@@ -1,8 +1,14 @@
 import React from 'react'
+import BootcamperItem from '../BootcamperItem'
 
-export function BootcamperList(){
+export function BootcamperList(props){
+    console.log("bootcamper Array", props.bootcamperArray)
     return(
-        <h1>Bootcamper List</h1>
+        <div>
+            {props.bootcamperArray.map(
+                (bootcamper) => {return <BootcamperItem key = {bootcamper.id} id={bootcamper.id} image = {bootcamper.image_url} firstName = {bootcamper.first_name}/>}
+            )}
+        </div>
     )
 }
 

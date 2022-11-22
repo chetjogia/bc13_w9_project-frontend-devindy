@@ -1,0 +1,23 @@
+.bootcamper-item{
+    display:flex;
+    justify-content: space-evenly;
+    border: solid;
+    max-width: 80%;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.button-div{
+    display: flex;
+    gap: 20px;
+    height: 30px;
+    justify-content: center;
+    align-self: center;
+}
+
+.bootcamper-item>img{
+    align-self:center;
+    height: 100px;
+    width:100px;
+    border-radius: 100px;
+}
