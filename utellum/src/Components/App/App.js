@@ -3,7 +3,6 @@ import {bootcampers} from '../../TestData/index.js'
 import BootcamperList from '../BootcamperList'
 import Header from '../Header'
 import Search from '../Search'
-
 import {useState, useEffect} from 'react'
 import {Routes, Route} from 'react-router-dom'
 import BootcamperProfile from '../BootcamperProfile';
@@ -14,11 +13,11 @@ import BootcamperProfile from '../BootcamperProfile';
 function App() {
   const [bootcamperArray, setBootcamperArray] = useState(bootcampers)
   const [input, setInput] = useState("")
+  const [filter, setFilter] = useState("first_name")
 
   useEffect(()=>{
     if(input!==""){
- 
-      let filteredBootcamperArray = bootcamperArray.filter((element)=>{return element.first_name.toLowerCase().includes(input)})
+      let filteredBootcamperArray = bootcamperArray.filter((element)=>{return element[filter].toLowerCase().includes(input)})
       setBootcamperArray(filteredBootcamperArray)
     }
     else{
@@ -34,6 +33,10 @@ function App() {
     setBootcamperArray(bootcampers)
   }
 
+  function searchFilterChoice(){
+      let filter = document.querySelector("#search-filter").value
+      setFilter(filter)
+  }
 
 
   return (
@@ -42,7 +45,7 @@ function App() {
       <Routes>
         <Route path="/" element={
         <div>
-          <Search inputHandler={inputHandler}/>
+          <Search searchFilterChoice= {searchFilterChoice} inputHandler={inputHandler}/>
           <BootcamperList input={input} bootcamperArray={bootcamperArray}/>
         </div>
       }/>
