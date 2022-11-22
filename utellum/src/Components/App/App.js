@@ -3,7 +3,7 @@ import {bootcampers} from '../../TestData/index.js'
 import BootcamperList from '../BootcamperList'
 import Header from '../Header'
 import Search from '../Search'
-import Profile from '../Profile'
+
 import {useState} from 'react'
 import {Routes, Route} from 'react-router-dom'
 import BootcamperProfile from '../BootcamperProfile';
