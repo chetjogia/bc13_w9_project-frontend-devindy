@@ -3,13 +3,13 @@ import './index.css'
 import TopicList from '../TopicList'
 import {useState} from 'react'
 import { strengths_weaknesses } from '../../TestData'
-
+import {Link} from 'react-router-dom'
 
 
 
 export function BootcamperItem(props){
 
-
+    
     function bootcamperStrengthAndWeakness(){
         const bootcamperStrengthAndWeakness = strengths_weaknesses.filter((element)=>element.bootcamper_ID===props.id)
         return bootcamperStrengthAndWeakness
@@ -32,8 +32,10 @@ export function BootcamperItem(props){
                 
             </div>
             <div className='button-div'>
-                <button>View</button>
-                <button>Message</button>
+            <Link   to={`/profile/${props.id}`}  state={{id: props.id}}>
+                <button  onClick={()=>{return props.getID(props.id)}}>View</button>
+            </Link>
+                <a>Message</a>
             </div>
         </div>
     )
