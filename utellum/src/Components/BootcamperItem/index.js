@@ -22,7 +22,11 @@ export function BootcamperItem(props){
     return(
         <div className='bootcamper-item'>
             <img src={props.image} alt="profile"></img>
-            <h1>{props.firstName}</h1>
+            <div>
+                <h1>{props.firstName}</h1>
+                <h1>{props.lastName}</h1>
+            </div>
+         
             <div>
                 <TopicList bootcamperStrengthAndWeaknessArray={bootcamperStrengthAndWeaknessArray} />
                 
