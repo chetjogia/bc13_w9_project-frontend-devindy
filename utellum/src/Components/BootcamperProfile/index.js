@@ -21,6 +21,7 @@ export function BootcamperProfile(props) {
 
 
     const [locked, setLocked] = useState(true)
+    const [hidden, setHidden] = useState(true)
 
     function correctPassword(event){
         let password = document.querySelector(".password").value
@@ -35,6 +36,19 @@ export function BootcamperProfile(props) {
            
         }
     }
+
+    function unhidePasswordInput(){
+        let e = document.querySelector("#view")
+        if(e.value==="view"){
+            setHidden(true)
+            setLocked(true)
+        }
+      else{
+            setHidden(false)
+           
+    }
+    }
+
         
     return(
         
@@ -45,9 +59,9 @@ export function BootcamperProfile(props) {
 
             <div>
                 <h1 className='bootcamper-name'>{bootcamper[0].first_name} {bootcamper[0].last_name}</h1>
-                <input className ="password" type = "password" placeholder='type password here'></input>
-                <button onClick={correctPassword}>Submit Password</button>
-                <select id="view" name="view">
+                <input hidden = {hidden} className ="password" type = "password" placeholder='type password here'></input>
+                <button hidden = {hidden} onClick={correctPassword}>Submit Password</button>
+                <select onChange={unhidePasswordInput} id="view" name="view">
                     <option value="view">View</option>
                     <option value="edit">Edit</option>
                 </select>
