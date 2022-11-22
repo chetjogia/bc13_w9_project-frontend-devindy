@@ -6,6 +6,7 @@ import Search from '../Search'
 import Profile from '../Profile'
 import {useState} from 'react'
 import {Routes, Route} from 'react-router-dom'
+import BootcamperProfile from '../BootcamperProfile';
 
 
 
@@ -40,7 +41,7 @@ function App() {
       }/>
       <Route exact path="/profile/:id" element={
         <div>
-          <Profile/>
+          <BootcamperProfile bootcamperArray={bootcamperArray}/>
         </div>
       }/>
     </Routes>
