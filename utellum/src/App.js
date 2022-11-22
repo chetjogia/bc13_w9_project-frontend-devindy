@@ -1,12 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
-
+import {bootcampers} from './TestData/index.js'
+import BootcamperList from './Components/BootcamperList'
+import Header from './Components/Header'
+import Search from './Components/Search'
 
 
 function App() {
+  console.log(bootcampers)
   return (
     <div className="App">
-        <h1>Hello World</h1>
+      <Header/>
+      <Search/>
+      <BootcamperList/>
     </div>
   );
 }
