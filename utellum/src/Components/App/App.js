@@ -24,7 +24,6 @@ function App() {
     async function getBootcamperData(){
       const response = await fetch("http://localhost:3000/api/bootcampers/")
       const data = await response.json()
-      console.log("has re-rendered at useEffect")
       const bootcamperArray = data.payload[0]
       const bootcamperStrengthsAndWeaknesses = data.payload[1]
       setBootcamperArray(bootcamperArray)
