@@ -1,26 +1,94 @@
+*{
+    box-sizing: border-box;
+}
 .bootcamper-profile{
-    border:solid;
+
     display:flex;
     width: 80%;
   
     margin: auto;
+    margin-top:50px;
+
+    flex-direction: column;
+    gap: 20px;
 }
 
 .topic-list-profile{
-    color:red;
-    border:solid;
+
+    
 }
 
-.bootcamper-name{
-    border:solid;
+.bootcamper-name-profile{
+
     height:70px;
+    width:30%;
+    font-size: 50px;
+    align-self: center;
 }
+.bootcamper-profile-header{
+    display:flex;
+    gap: 10px;
+    border:solid;
+ 
+}
+
 
 .name-strength-weakness{
     display:flex;
     flex-direction: column;
+    
+    width:100%;
+}
+
+.enter-password{
+    align-self: center;
 }
 
 .topic-profile>div{
+    display: flex;
+    justify-content: space-between;
+   border:solid;
+   width: auto;
+}
+
+.strength-and-weakness{
+    width:100%;
     border:solid;
+}
+
+.strength-profile>h1{
+  
+    margin-left: 30px;
+   
+    
+}
+
+#view{
+    height:20px;
+    align-self: center;
+}
+
+.profile-picture{
+    height:200px;
+    padding:10px;
+    background-color: lightblue;
+    border:solid lightblue 2px;
+    margin:10px;
+}
+
+.topic-name-SW{
+    align-self: center;
+}
+.topic-box{
+    display: flex;
+    border: solid;
+    height: 40px;
+    padding:0 10px;
+}
+
+.delete-SW{
+    margin-left:10px;
+    margin-right:0px;
+    align-self: flex-start;
+   height:20px;
 }

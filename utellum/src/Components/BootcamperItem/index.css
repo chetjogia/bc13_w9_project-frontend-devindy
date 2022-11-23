@@ -6,6 +6,17 @@
     margin: auto;
     margin-top: 20px;
 }
+nav>ul>li>a{
+    font-size: 20px;
+    text-decoration: none;
+    color:black;
+}
+
+nav>ul>li>a:hover{
+    font-size: 20px;
+    text-decoration: none;
+    color:red;
+}
 
 .button-div{
     display: flex;
@@ -13,6 +24,12 @@
     height: 30px;
     justify-content: center;
     align-self: center;
+}
+button{
+    height:40px;    
+    width:80px;
+    background-color: lightblue;
+    border-radius: 10px;
 }
 
 .bootcamper-item>img{

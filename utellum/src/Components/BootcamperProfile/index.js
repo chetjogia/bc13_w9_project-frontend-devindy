@@ -8,17 +8,16 @@ import {useState} from 'react'
 export function BootcamperProfile(props) {    
 
     const { state } = useLocation();
-    console.log("bootcamper SW PASS", props.bootcamperSW)
+
     function bootcamperStrengthAndWeakness(){
         const bootcamperStrengthAndWeakness = props.bootcamperSW.filter((element)=>element.bootcamper_id===state.id)
 
-        console.log("hello im here")
         return bootcamperStrengthAndWeakness
     }
 
     let bootcamperStrengthAndWeaknessArray = bootcamperStrengthAndWeakness()
 
-    console.log("re-rendering", bootcamperStrengthAndWeaknessArray)
+  
     let bootcamperArray = props.bootcamperArray
     let bootcamper = bootcamperArray.filter((element)=>{
         return element.bootcamper_id===state.id})
@@ -59,24 +58,30 @@ export function BootcamperProfile(props) {
         
     
     <div className='bootcamper-profile'>
-        <img className = "profile-picture" src={bootcamper[0].image_url} alt = "profile"></img>
         <div className='name-strength-weakness'>
 
-            <div>
+            <div className='bootcamper-profile-header'>
             
-                <h1 className='bootcamper-name'>{bootcamper[0].first_name} {bootcamper[0].last_name}</h1>
-                <input hidden = {hidden} className ="password" type = "password" placeholder='type password here'></input>
-                <button hidden = {hidden} onClick={correctPassword}>Submit Password</button>
+                <img className = "profile-picture" src={bootcamper[0].image_url} alt = "profile"></img>
+                <h1 className='bootcamper-name-profile'>{bootcamper[0].first_name} {bootcamper[0].last_name}</h1>
                 <select onChange={unhidePasswordInput} id="view" name="view">
                     <option value="view">View</option>
                     <option value="edit">Edit</option>
                 </select>
+                <div className='enter-password'>
+                    <input hidden = {hidden} className ="password" type = "password" placeholder='type password here'></input>
+                    <button hidden = {hidden} onClick={correctPassword}>Submit Password</button>
+
+                </div>
+                
+               
             </div>
-            <div>
+            
+        </div>
+        <div className='strength-and-weakness'>
                 <StrengthOrWeakness deleteTopic={props.deleteTopic} state={state.id} addTopic={props.addTopic} hidden={locked} className="topic-list-profile" category="Strength" bootcamperStrengthAndWeaknessArray={bootcamperStrengthAndWeaknessArray}/>
                 <StrengthOrWeakness deleteTopic={props.deleteTopic} state={state.id} addTopic={props.addTopic} hidden={locked} className="topic-list-profile" category="Weakness" bootcamperStrengthAndWeaknessArray={bootcamperStrengthAndWeaknessArray}/>
             </div>
-        </div>
     </div>        
     )
 

@@ -160,9 +160,9 @@ function App() {
         </div>
       }/>
       <Route exact path="/profile/:id" element={
-        <div>
+        <>
           <BootcamperProfile deleteTopic={deleteTopic} addTopic={addTopic} bootcamperArray={bootcamperArray} bootcamperSW = {bootcamperSW}/>
-        </div>
+        </>
       }/>
     </Routes>
    
