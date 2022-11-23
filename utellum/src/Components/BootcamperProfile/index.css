@@ -1,0 +1,26 @@
+.bootcamper-profile{
+    border:solid;
+    display:flex;
+    width: 80%;
+  
+    margin: auto;
+}
+
+.topic-list-profile{
+    color:red;
+    border:solid;
+}
+
+.bootcamper-name{
+    border:solid;
+    height:70px;
+}
+
+.name-strength-weakness{
+    display:flex;
+    flex-direction: column;
+}
+
+.topic-profile>div{
+    border:solid;
+}

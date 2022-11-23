@@ -1,0 +1,37 @@
+.strength{
+    display:flex;
+   
+
+}
+
+.weakness{
+    display:flex;
+}
+
+.strength>ul{
+    display:flex;
+
+    list-style: none;
+    gap: 20px;
+    max-width:200px;
+    flex-wrap: wrap;
+
+}
+
+.strength>ul>li{
+    align-self: center;
+}
+
+
+.weakness>ul{
+    display:flex;
+
+    list-style: none;
+    gap: 20px;
+    max-width:200px;
+    flex-wrap: wrap;
+}
+
+.weakness>ul>li{
+    align-self: center;
+}
