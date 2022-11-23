@@ -79,23 +79,37 @@ function App() {
 
 
 
-    function addTopic(topic_id, strength, id, topic_name){
+    function addTopic(topic_id, strength, id, topic_name, individualBootcamperSW){
    
       let SWObject = {topicId: topic_id, bootcamperId: id, strengthOrWeakness: strength, uniqueId:uuidv4() }
       let SWLocalObject = {topicId: Number(topic_id), bootcamper_id: id, strength_weakness: strength, topic_name: topic_name, unique_id:uuidv4() }
+      let exists = false
       const newArray = [...bootcamperSW]
-      newArray.push(SWLocalObject)
-      fetch('http://localhost:3000/api/bootcampers/', { method: 'POST',
-       headers: {
-           'Accept': 'application/json',
-           'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(SWObject)
-       
-       })
-       .then(response => response.json())
-       .then(response => console.log(JSON.stringify(response)))
-      setBootcamperSW(newArray)
+      console.log("individual", individualBootcamperSW)
+      for(let i=0; i<individualBootcamperSW.length;i++){
+        if(individualBootcamperSW[i].topic_name===SWLocalObject.topic_name){
+          exists = true
+          console.log("here")
+        }   
+      }
+      if(!exists){
+        newArray.push(SWLocalObject)
+        fetch('http://localhost:3000/api/bootcampers/', { method: 'POST',
+         headers: {
+             'Accept': 'application/json',
+             'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(SWObject)
+         
+         })
+         .then(response => response.json())
+         .then(response => console.log(JSON.stringify(response)))
+        setBootcamperSW(newArray)
+      }
+      else{
+        alert("You already have this topic as a strength or weakness, please choose another, or delete the topic before adding")
+      }
+    
    }
 
   function inputHandler(event){
