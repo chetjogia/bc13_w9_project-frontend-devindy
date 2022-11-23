@@ -32,11 +32,16 @@ export function BootcamperProfile(props) {
       
         if(password===bootcamper[0].password){
             setLocked(false)
+            document.querySelector(".password").hidden=true
+            document.querySelector(".submit-password").hidden=true
+            document.querySelector(".logged-in").hidden=false
+            document.querySelector(".password").value=""
             
         }
         else{
             setLocked(true)
-           
+            document.querySelector(".password").value=""
+            alert("Please enter the correct password")
         }
     }
 
@@ -45,9 +50,15 @@ export function BootcamperProfile(props) {
         if(e.value==="view"){
             setHidden(true)
             setLocked(true)
+            document.querySelector(".logged-in").hidden=true
         }
       else{
             setHidden(false)
+            document.querySelector(".logged-in").hidden=true
+            document.querySelector(".password").value=""
+            document.querySelector(".password").hidden=false
+            document.querySelector(".submit-password").hidden=false
+            
            
     }
     }
@@ -70,7 +81,8 @@ export function BootcamperProfile(props) {
                 </select>
                 <div className='enter-password'>
                     <input hidden = {hidden} className ="password" type = "password" placeholder='type password here'></input>
-                    <button hidden = {hidden} onClick={correctPassword}>Submit Password</button>
+                    <button className="submit-password" hidden = {hidden} onClick={correctPassword}>Submit Password</button>
+                    <p hidden="true" className="logged-in">Logged In</p>
 
                 </div>
                 
