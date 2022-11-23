@@ -24,16 +24,15 @@ function App() {
     async function getBootcamperData(){
       const response = await fetch("http://localhost:3000/api/bootcampers/")
       const data = await response.json()
+      console.log("has re-rendered at useEffect")
       const bootcamperArray = data.payload[0]
       const bootcamperStrengthsAndWeaknesses = data.payload[1]
       setBootcamperArray(bootcamperArray)
       setBootcamperSW(bootcamperStrengthsAndWeaknesses)
-
     }
     
     getBootcamperData()
   },[])
-
 
 
   for(let i=0; i<bootcamperArray.length;i++){
@@ -100,7 +99,6 @@ function App() {
       setBootcamperSW(newArray)
    }
 
-
   function inputHandler(event){
     let inputValue = document.querySelector(".input").value
     setInput(inputValue.toLowerCase())
@@ -113,7 +111,6 @@ function App() {
   }
 
   function deleteTopic(id){
-
      fetch('http://localhost:3000/api/bootcampers/' + id, {
     method: 'DELETE',
     }
