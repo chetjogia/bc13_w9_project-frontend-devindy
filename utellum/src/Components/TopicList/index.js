@@ -2,6 +2,7 @@ import React from 'react'
 import "./index.css"
 
 export function TopicList({bootcamperStrengthAndWeaknessArray}){
+    console.log("topiclist", bootcamperStrengthAndWeaknessArray)
     return(
         <div>
             <div className='strength'>
