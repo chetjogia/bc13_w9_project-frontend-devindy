@@ -151,7 +151,10 @@ function App() {
         <Route path="/" element={
         <div>
           <Search searchFilterChoice= {searchFilterChoice} inputHandler={inputHandler}/>
-          <BootcamperList input={input} bootcamperArray={bootcamperArray} bootcamperSW = {bootcamperSW}/>
+          <div >
+            <BootcamperList input={input} bootcamperArray={bootcamperArray} bootcamperSW = {bootcamperSW}/>
+          </div>
+          
         </div>
       }/>
       <Route path="/about" element={

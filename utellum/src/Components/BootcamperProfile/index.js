@@ -36,7 +36,7 @@ export function BootcamperProfile(props) {
             document.querySelector(".submit-password").hidden=true
             document.querySelector(".logged-in").hidden=false
             document.querySelector(".password").value=""
-            
+
         }
         else{
             setLocked(true)
