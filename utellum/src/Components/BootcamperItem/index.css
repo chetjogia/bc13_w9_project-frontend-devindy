@@ -8,7 +8,7 @@
     flex-direction: row;
     border: solid;
     border-radius: 30px;
-    background-image: url("./Item_Background.png");
+    
     background-position: center;
     border-color: var(--siteColor10);
     max-width: var(--item-width);
@@ -63,10 +63,12 @@ nav>ul>li>a:hover{
 
 
 .info-button{
-    height: 35px;
-    width: 70px;
-    margin-bottom: 20px;
-=======
+    height:40px;    
+    width:80px;
+    background-color: var(--siteColor30);
+    border-radius: 10px;
+}
+
 .link-view{
     height:40px;    
     width:80px;
