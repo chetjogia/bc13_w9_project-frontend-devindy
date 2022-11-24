@@ -13,22 +13,47 @@
     gap: 20px;
 }
 
-.topic-list-profile{
+.availability{
+    display:flex;
+    flex-direction: column;
+    border:solid;
+    border-radius:10px;
+    border-color: var(--siteColor10);
+}
 
+.availability>h1{
+    margin:0px;
+    margin-top: 21.4px;
+    margin-left: 20px;
+    align-self: flex-start;
     
 }
 
-.bootcamper-name-profile{
+.availability>ul>li{
+    display:flex;
+    align-items: center;
+    gap: 20px;
+    margin:0px;
+    height:30px;
+}
+.availability>ul>li>h3{
+   font-size:20px;
+}
 
+.bootcamper-name-profile{
+    
     height:70px;
-    width:30%;
+    width:auto;
+    margin-right:20px;
     font-size: 50px;
     align-self: center;
+    
 }
 .bootcamper-profile-header{
+    margin-top:10px;
     display:flex;
     gap: 10px;
-    border:solid;
+   
  
 }
 
@@ -49,16 +74,20 @@
     justify-content: space-between;
    border:solid;
    width: auto;
+   border-radius:10px;
+    border-color: var(--siteColor10);
 }
 
 .strength-and-weakness{
     width:100%;
     border:solid;
+    border-radius:10px;
+    border-color: var(--siteColor10);
 }
 
 .strength-profile>h1{
   
-    margin-left: 30px;
+    margin-left: 20px;
    
     
 }
@@ -69,11 +98,12 @@
 }
 
 .profile-picture{
-    height:200px;
+    height:auto;
     padding:10px;
-    background-color: lightblue;
-    border:solid lightblue 2px;
-    margin:10px;
+    background-color:var(--siteColor10);
+    border:solid black 2px;
+    margin-right:10px;
+
 }
 
 .topic-name-SW{
@@ -81,9 +111,11 @@
 }
 .topic-box{
     display: flex;
-    border: solid;
+    border: solid red;
     height: 40px;
     padding:0 10px;
+    border-radius:10px;
+    
 }
 
 .delete-SW{
@@ -95,4 +127,62 @@
 
 .logged-in{
     color:green;
+}
+
+.description{
+    border:solid;
+    padding:0px 20px;
+    border-radius:10px;
+    border-color: var(--siteColor10);
+}
+
+.view{
+    display:flex;
+    gap:10px;
+
+    height: 40px;
+}
+
+.view>#view{
+    height:35px;
+    border:solid;
+    border-color: var(--siteColor10);
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+.enter-password{
+    display:flex;
+    height:35px;
+
+}
+
+.enter-password>input{
+    height:35px;
+    border-radius: 10px;
+    border-color: var(--siteColor10);
+    font-size:20px;
+}
+
+.enter-password>button{
+    height:35px;
+    border-radius: 10px;
+    border-color: var(--siteColor10);
+    background-color: var(--siteColor10);
+    font-size:20px;
+}
+
+.logged-in{
+    justify-content: center;
+    align-self: center;
+    margin:0px;
+}
+
+.name-SW{
+    width:100%;
+}
+
+.view-name{
+    display:flex;
+    align-items: center;
 }

@@ -17,7 +17,7 @@ export function StrengthOrWeakness({category, bootcamperStrengthAndWeaknessArray
     return(
         <div>
             <div className='strength-profile'>
-                <h1>{category}</h1>
+                <h1>{category}:</h1>
                 <ul className='topic-profile'>
                     {bootcamperStrengthAndWeaknessArray.map((element)=> element.strength_weakness === strength ? <div className="topic-box"><div className="topic-name-SW">{element.topic_name}</div><div hidden={hidden} className="delete-SW"> <button className="delete-topic" onClick={()=>deleteTopic(element.unique_id)} hidden={hidden}>x</button></div></div> : console.log("fail"))}
                 </ul>
