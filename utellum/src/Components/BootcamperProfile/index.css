@@ -8,7 +8,7 @@
   
     margin: auto;
     margin-top:50px;
-
+    
     flex-direction: column;
     gap: 20px;
 }
@@ -103,6 +103,7 @@
     background-color:var(--siteColor10);
     border:solid black 2px;
     margin-right:10px;
+    border-radius: 10px;
 
 }
 

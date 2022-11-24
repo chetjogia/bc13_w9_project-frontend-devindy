@@ -34,31 +34,38 @@ export const bootcampers = [
 export const topics = [
     {
         id: 1,
-        topic_name: "React"
+        topic_name: "React",
+        topic_color: "#BD6F7F"
     },
     {
         id: 2,
-        topic_name: "Node"
+        topic_name: "Node",
+        topic_color: "#CBA178"
     },
     {
         id: 3,
-        topic_name: "SQL"
+        topic_name: "SQL",
+        topic_color: "#CBC678"
     },
     {
         id: 4,
-        topic_name: "CSS"
+        topic_name: "CSS",
+        topic_color: "#7FB068"
     },
     {
         id: 5,
-        topic_name: "UIUX"
+        topic_name: "UI/UX",
+        topic_color: "#b0e7ff"
     },
     {
         id: 6,
-        topic_name: "Javascript"
+        topic_name: "JavaScript",
+        topic_color: "#a2b8f4"
     },
     {
         id: 7,
-        topic_name: "HTML"
+        topic_name: "HTML",
+        topic_color: "#B181A7"
     }   
 
 
