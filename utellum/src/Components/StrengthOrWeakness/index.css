@@ -1,6 +1,10 @@
+
+@import '../../colour.css';
+
 *{
     box-sizing: border-box;
 }
+
 .strength-profile{
     display:flex;
     
