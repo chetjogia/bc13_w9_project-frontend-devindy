@@ -21,21 +21,23 @@ export function BootcamperItem(props){
 
     return(
         <div className='bootcamper-item'>
-            <img src={props.image} alt="profile"></img>
-            <div>
-                <h1>{props.firstName}</h1>
-                <h1>{props.lastName}</h1>
+            <div className='bootcamper-left-half'>
+                <img className='profile-pic' src={props.image} alt="profile"></img>
+                <div className='bootcamper-info'>
+                    <div>
+                        <p className="bootcamper-one">{props.firstName}</p>
+                        <p className="bootcamper-one">{props.lastName}</p>
+                    </div>
+                    <div className='button-div'>
+                        <Link to={`/profile/${props.id}`} state={{id: props.id}}>
+                          <button className="info-button" onClick={()=>{return props.getID(props.id)}}>View</button>
+                        </Link>
+                        <button className="info-button">Message</button>
+                    </div>
+                </div>
             </div>
-         
-            <div>
+            <div className="bootcamper-right-half">
                 <TopicList bootcamperStrengthAndWeaknessArray={bootcamperStrengthAndWeaknessArray} />
-                
-            </div>
-            <div className='button-div'>
-            <Link   to={`/profile/${props.id}`}  state={{id: props.id}}>
-                <button  onClick={()=>{return props.getID(props.id)}}>View</button>
-            </Link>
-                <button>Message</button>
             </div>
         </div>
     )

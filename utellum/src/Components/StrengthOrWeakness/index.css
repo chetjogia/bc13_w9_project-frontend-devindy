@@ -1,3 +1,5 @@
+@import '../../colour.css';
+
 .strength-profile{
     display:flex;
     border: solid;

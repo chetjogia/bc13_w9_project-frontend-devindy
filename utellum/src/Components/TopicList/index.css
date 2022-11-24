@@ -1,7 +1,12 @@
+.topic-list{
+    display: flex;
+    flex-direction: column;
+    align-self: space-between;
+    margin-top: 20px
+}
+
 .strength{
     display:flex;
-   
-
 }
 
 .weakness{
@@ -10,7 +15,7 @@
 
 .strength>ul{
     display:flex;
-
+    flex-direction: row;
     list-style: none;
     gap: 20px;
     max-width:200px;

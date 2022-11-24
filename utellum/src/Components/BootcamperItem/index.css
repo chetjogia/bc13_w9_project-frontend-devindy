@@ -1,23 +1,57 @@
+@import '../../colour.css';
+:root{
+    --item-width: 40%;
+}
+
 .bootcamper-item{
     display:flex;
-    justify-content: space-evenly;
+    flex-direction: row;
     border: solid;
-    max-width: 80%;
+    border-radius: 30px;
+    background-image: url("./Item_Background.png");
+    background-position: center;
+    border-color: var(--siteColor10);
+    max-width: var(--item-width);
     margin: auto;
     margin-top: 20px;
+    gap: 100px;
+}
+
+.bootcamper-left-half{
+    display: flex;
+    flex-direction: row;
+    align-self: left;
+}
+
+.profile-pic{
+    height: 100px;
+    width:100px;
+    border-radius: 50%;
+    border: 5px solid var(--rainbowG);
+    margin: 35px;
+}
+
+.bootcamper-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.bootcamper-one{
+    font-size: 1.3em;
+    font-weight: bold;
 }
 
 .button-div{
     display: flex;
+    flex-direction: row;
     gap: 20px;
-    height: 30px;
     justify-content: center;
-    align-self: center;
+    
 }
 
-.bootcamper-item>img{
-    align-self:center;
-    height: 100px;
-    width:100px;
-    border-radius: 100px;
+.info-button{
+    height: 35px;
+    width: 70px;
+    margin-bottom: 20px;
 }
