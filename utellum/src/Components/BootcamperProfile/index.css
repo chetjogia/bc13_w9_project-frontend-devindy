@@ -160,14 +160,15 @@
 
 .enter-password>input{
     height:35px;
-    border-radius: 10px;
+    border-radius: 10px 0 0 10px ;
     border-color: var(--siteColor10);
     font-size:20px;
+    border-right: none;
 }
 
 .enter-password>button{
     height:35px;
-    border-radius: 10px;
+    border-radius: 0 10px  10px 0;
     border-color: var(--siteColor10);
     background-color: var(--siteColor10);
     font-size:20px;
