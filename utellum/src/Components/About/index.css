@@ -1,0 +1,33 @@
+.author{
+   
+    border:solid;
+  width:50%;
+    display:flex;
+    margin:auto;
+    margin-top:40px;
+    flex-direction: row;
+    gap:15px;
+    padding:20px;
+    border-radius: 10px;
+    border-color: #945786;
+   
+}
+
+.author-info{
+    display:flex;
+    align-items: center;
+    gap: 15px
+}
+
+.profile-pic-about{
+    height:100px;
+    width:100px;
+    border-radius: 100%;
+    border:solid;
+    border-color: #945786;
+
+}
+
+.ten-second{
+    font-size: 30px;
+}

@@ -25,12 +25,12 @@ export function BootcamperItem(props){
                 <img className='profile-pic' src={props.image} alt="profile"></img>
                 <div className='bootcamper-info'>
                     <div>
-                        <p className="bootcamper-one">{props.firstName}</p>
-                        <p className="bootcamper-one">{props.lastName}</p>
+                        <h1 className="bootcamper-one">{props.firstName} {props.lastName}</h1>
+                      
                     </div>
                     <div className='button-div'>
                         <Link to={`/profile/${props.id}`} state={{id: props.id}}>
-                          <button className="info-button" onClick={()=>{return props.getID(props.id)}}>View</button>
+                          <button className="info-button" >View</button>
                         </Link>
                         <Link>
                         <button className="info-button">Message</button>

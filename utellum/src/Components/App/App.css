@@ -1,5 +1,6 @@
 @import '../../colour.css';
 
 body {
-  background-color: var(--siteColor60);
+  background-color: white;
 }
+

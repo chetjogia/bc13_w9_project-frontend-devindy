@@ -10,7 +10,7 @@ export function Search({inputHandler, searchFilterChoice}){
                 <option value="strength">Strength</option>
                 <option value="weakness">Weakness</option>
             </select>
-            <input onChange={inputHandler} className='input'></input>
+            <input placeholder="Enter search criteria here" onChange={inputHandler} className='input'></input>
             {/* <button >Search</button> */}
         </div>
     )

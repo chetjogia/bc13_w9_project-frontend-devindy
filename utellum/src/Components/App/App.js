@@ -1,5 +1,5 @@
 import './App.css';
-
+import About from '../About';
 import BootcamperList from '../BootcamperList'
 import Header from '../Header'
 import Search from '../Search'
@@ -7,7 +7,7 @@ import {useState, useEffect} from 'react'
 import {Routes, Route} from 'react-router-dom'
 import BootcamperProfile from '../BootcamperProfile';
 import { v4 as uuidv4 } from 'uuid'
-
+import Footer from "../Footer"
 
 
 function App() {
@@ -151,12 +151,15 @@ function App() {
         <Route path="/" element={
         <div>
           <Search searchFilterChoice= {searchFilterChoice} inputHandler={inputHandler}/>
-          <BootcamperList input={input} bootcamperArray={bootcamperArray} bootcamperSW = {bootcamperSW}/>
+          <div >
+            <BootcamperList input={input} bootcamperArray={bootcamperArray} bootcamperSW = {bootcamperSW}/>
+          </div>
+          
         </div>
       }/>
       <Route path="/about" element={
         <div>
-          <h1>hello World</h1>
+         <About/>
         </div>
       }/>
       <Route exact path="/profile/:id" element={
@@ -165,6 +168,7 @@ function App() {
         </>
       }/>
     </Routes>
+
    
       
     </div>

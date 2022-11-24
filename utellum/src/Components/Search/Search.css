@@ -2,9 +2,21 @@
     display:flex;
     margin-top: 40px;
     justify-content: center;
-    gap: 10px;
+    
 }
 
 .input{
+    border:solid;
+    border-color: var(--siteColor10);
+    height: 30px;
     width: 400px;
+    border-radius: 0 10px 10px 0;
+}
+
+#search-filter{
+    border:solid;
+    border-right:none;
+    border-color: var(--siteColor10);
+    border-radius:10px 0 0 10px ;
+    font-size: 20px;
 }
