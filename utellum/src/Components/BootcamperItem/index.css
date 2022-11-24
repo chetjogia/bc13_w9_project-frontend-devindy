@@ -41,6 +41,17 @@
     font-size: 1.3em;
     font-weight: bold;
 }
+nav>ul>li>a{
+    font-size: 20px;
+    text-decoration: none;
+    color:black;
+}
+
+nav>ul>li>a:hover{
+    font-size: 20px;
+    text-decoration: none;
+    color:red;
+}
 
 .button-div{
     display: flex;
@@ -50,8 +61,30 @@
     
 }
 
+
 .info-button{
     height: 35px;
     width: 70px;
     margin-bottom: 20px;
+=======
+.link-view{
+    height:40px;    
+    width:80px;
+    background-color: lightblue;
+    border-radius: 10px;
+}
+
+.link-message{
+    height:40px;    
+    width:80px;
+    background-color: lightblue;
+    border-radius: 10px;
+}
+
+.bootcamper-item>img{
+    align-self:center;
+    height: 100px;
+    width:100px;
+    border-radius: 100px;
+
 }

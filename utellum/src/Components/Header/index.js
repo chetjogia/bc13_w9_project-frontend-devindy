@@ -6,8 +6,10 @@ export function Header(){
     return(
         <header className='header'>
             <div>
+
                 <img className='logo' src={logo} alt="Utellum logo"/>
                 <h1 className='app-name'>Utellum</h1>
+
             </div>
         
             <nav>

@@ -38,6 +38,8 @@ export function BootcamperItem(props){
             </div>
             <div className="bootcamper-right-half">
                 <TopicList bootcamperStrengthAndWeaknessArray={bootcamperStrengthAndWeaknessArray} />
+
+
             </div>
         </div>
     )
