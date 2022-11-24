@@ -30,7 +30,7 @@ export function BootcamperItem(props){
                     </div>
                     <div className='button-div'>
                         <Link to={`/profile/${props.id}`} state={{id: props.id}}>
-                          <button className="info-button" onClick={()=>{return props.getID(props.id)}}>View</button>
+                          <button className="info-button" >View</button>
                         </Link>
                         <Link>
                         <button className="info-button">Message</button>
