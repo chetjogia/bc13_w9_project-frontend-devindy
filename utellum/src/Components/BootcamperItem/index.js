@@ -11,12 +11,12 @@ export function BootcamperItem(props){
 
     
     function bootcamperStrengthAndWeakness(){
-        const bootcamperStrengthAndWeakness = strengths_weaknesses.filter((element)=>element.bootcamper_ID===props.id)
+        const bootcamperStrengthAndWeakness = props.bootcamperSW.filter((element)=>element.bootcamper_id===props.id)
         return bootcamperStrengthAndWeakness
     }
 
     let bootcamperStrengthAndWeaknessArray = bootcamperStrengthAndWeakness()
-    console.log("SW",bootcamperStrengthAndWeaknessArray)
+
 
 
     return(
