@@ -28,7 +28,8 @@
     width:150px;
     border-radius: 50%;
     border: 5px solid var(--rainbowG);
-    margin: 35px;
+    margin: 30px;
+    margin-left:35px;
 }
 
 .bootcamper-info{
@@ -74,9 +75,10 @@ nav>ul>li>a:hover{
 
 .info-button{
     height:40px;    
-    width:80px;
+    width:100px;
     background-color: var(--siteColor30);
     border-radius: 10px;
+    font-size: 20px;
 }
 
 .link-view{
