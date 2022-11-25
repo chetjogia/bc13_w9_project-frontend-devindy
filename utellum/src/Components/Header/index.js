@@ -7,8 +7,10 @@ export function Header(){
         <header className='header'>
             <div>
 
+            
                 <img className='logo' src={logo} alt="Utellum logo"/>
-                <h1 className='app-name'>Utellum</h1>
+            
+                <h1 className='app-name'><a href="/">Utellum</a></h1>
 
             </div>
         
