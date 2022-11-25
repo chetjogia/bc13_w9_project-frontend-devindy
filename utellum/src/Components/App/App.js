@@ -112,6 +112,43 @@ function App() {
     
    }
 
+   const [hiddenForm, setHiddenForm] = useState(false)
+
+   function patchRequestHandler(description, id){
+    console.log("description", description)
+    let newObject = {description:description}
+    fetch(`http://localhost:3000/api/bootcampers/${id}`, { method: 'PATCH',
+         headers: {
+             'Accept': 'application/json',
+             'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(newObject)
+         
+         })
+         .then(response => response.json())
+         .then(response => console.log(JSON.stringify(response)))
+
+         console.log(bootcamperArray)
+         for(let i=0;i<bootcamperArray.length;i++){
+          if(bootcamperArray[i].bootcamper_id === id){
+            bootcamperArray[i].description = description
+          }
+         }
+         let newArray = [...bootcamperArray]
+         setBootcamperArray(newArray)
+         setHiddenForm(true)
+        document.querySelector(".saved").hidden = false
+        const myTimeout = setTimeout(endSave, 2000)
+
+        function endSave(){
+          document.querySelector(".saved").hidden = true
+        }
+         /*  document.querySelector(".description-form").hidden = true
+         document.querySelector(".visible-description").hidden = false
+         document.querySelector(".save").hidden = true */
+
+   }
+
   function inputHandler(event){
     let inputValue = document.querySelector(".input").value
     setInput(inputValue.toLowerCase())
@@ -164,7 +201,7 @@ function App() {
       }/>
       <Route exact path="/profile/:id" element={
         <>
-          <BootcamperProfile deleteTopic={deleteTopic} addTopic={addTopic} bootcamperArray={bootcamperArray} bootcamperSW = {bootcamperSW}/>
+          <BootcamperProfile hiddenForm = {hiddenForm} patchRequestHandler={patchRequestHandler} deleteTopic={deleteTopic} addTopic={addTopic} bootcamperArray={bootcamperArray} bootcamperSW = {bootcamperSW}/>
         </>
       }/>
     </Routes>

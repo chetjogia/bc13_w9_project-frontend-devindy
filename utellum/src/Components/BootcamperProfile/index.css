@@ -131,6 +131,8 @@
 }
 
 .description{
+    display:flex;
+    flex-direction: column;
     border:solid;
     padding:0px 20px;
     border-radius:10px;
@@ -187,4 +189,49 @@
 .view-name{
     display:flex;
     align-items: center;
+}
+
+.description-form{
+    border:solid;
+    padding:0px 20px;
+    border-radius:10px;
+    border-color: var(--siteColor10);
+    width:100%;
+    font-size: 20px;
+}
+.save{
+    margin-top:10px;
+    margin-bottom:10px;
+    justify-content: flex-end;
+    align-items: flex-end;
+    align-self:flex-end;
+    height:40px;    
+    width:100px;
+    background-color: var(--siteColor30);
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+.description>h1{
+    align-self: flex-start;
+}
+
+.visible-description{
+    margin-top:0px;
+  
+    width:100%;
+    font-size: 20px;
+}
+
+.saved-pair{
+    display:flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    align-self:flex-end;
+    gap:10px;
+    
+}
+
+.saved{
+    color:green;
 }
