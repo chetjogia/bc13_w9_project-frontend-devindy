@@ -15,8 +15,10 @@ export function BootcamperProfile(props) {
         return bootcamperStrengthAndWeakness
     }
 
-    let bootcamperStrengthAndWeaknessArray = bootcamperStrengthAndWeakness()
+  
 
+    let bootcamperStrengthAndWeaknessArray = bootcamperStrengthAndWeakness()
+    console.log("checking",bootcamperStrengthAndWeaknessArray)
   
     let bootcamperArray = props.bootcamperArray
     let bootcamper = bootcamperArray.filter((element)=>{
@@ -32,6 +34,7 @@ export function BootcamperProfile(props) {
       
         if(password===bootcamper[0].password){
             setLocked(false)
+            document.querySelector(".description-form").hidden=false;
             document.querySelector(".password").hidden=true
             document.querySelector(".submit-password").hidden=true
             document.querySelector(".logged-in").hidden=false
@@ -51,13 +54,16 @@ export function BootcamperProfile(props) {
             setHidden(true)
             setLocked(true)
             document.querySelector(".logged-in").hidden=true
-        }
+            document.querySelector(".description-form").hidden=true;
+            document.querySelector(".visible-description").hidden = true; 
+            document.querySelector(".saved").hidden = true       }
       else{
             setHidden(false)
             document.querySelector(".logged-in").hidden=true
             document.querySelector(".password").value=""
             document.querySelector(".password").hidden=false
             document.querySelector(".submit-password").hidden=false
+           
             
            
     }
@@ -112,9 +118,19 @@ export function BootcamperProfile(props) {
        
         <div className='description'>
         <h1>About Me</h1>
-            <p>
-            Sed molestie nisi vitae est dapibus, a tincidunt erat posuere. Aliquam erat volutpat. Nulla laoreet tincidunt libero. Fusce auctor accumsan suscipit. Proin vitae bibendum nisi. Pellentesque diam est, volutpat sit amet augue sed, vulputate porta justo. Nullam tincidunt sollicitudin velit at tincidunt. Nam sit amet dolor mattis, varius quam a, vestibulum elit. Vivamus tempus augue ac sapien pellentesque elementum nec auctor ipsum. Vestibulum malesuada faucibus nulla eu molestie.
+            <p className="visible-description" hidden={!locked}>
+                {bootcamper[0].description}
             </p>
+            <form> 
+            <input type="text" className="description-form" hidden = {locked} defaultValue={bootcamper[0].description}>
+            </input>
+            </form>
+            <div className="saved-pair">
+            <h3 hidden = {true} className='saved'>Saved!</h3>
+            <button className='save' hidden = {locked} onClick={()=>{return props.patchRequestHandler(document.querySelector(".description-form").value, state.id)}}>Save</button>
+
+            </div>
+            
         </div>
         <div className='availability'>
         <h1>Availability</h1>
