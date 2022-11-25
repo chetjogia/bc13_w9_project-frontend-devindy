@@ -17,9 +17,7 @@ return(
             <h1 className="about-me">Alex Chappell</h1>
 
         </div>
-        <div>
-            <p className="ten-second">ten second chat</p>
-        </div>
+    
     </div>
     </div>
     <div className="author">
@@ -29,9 +27,7 @@ return(
             <h1 className="about-me">Chetan Jogia</h1>
 
         </div>
-        <div>
-            <p className="ten-second">ten second chat</p>
-        </div>
+        
     </div>
     </div>
     <div className="author">
@@ -41,9 +37,7 @@ return(
             <h1 className="about-me">Jason Riley</h1>
 
         </div>
-        <div>
-            <p className="ten-second">ten second chat</p>
-        </div>
+     
     </div>
     </div>
     <div className="author">
@@ -53,9 +47,7 @@ return(
             <h1 className="about-me">Luke Adams</h1>
 
         </div>
-        <div>
-            <p className="ten-second">ten second chat</p>
-        </div>
+     
     </div>
     </div>
 
