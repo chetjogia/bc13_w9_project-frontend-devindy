@@ -18,7 +18,7 @@ function App() {
 
   useEffect(() => {
     async function getBootcamperData() {
-      const response = await fetch("http://localhost:3000/api/bootcampers/");
+      const response = await fetch("https://utellum-back-end.onrender.com/api/bootcampers/");
       const data = await response.json();
       const bootcamperArray = data.payload[0];
       const bootcamperStrengthsAndWeaknesses = data.payload[1];
@@ -65,7 +65,7 @@ function App() {
       setBootcamperArray(filteredBootcamperArray);
     } else {
       async function getBootcamperData() {
-        const response = await fetch("http://localhost:3000/api/bootcampers/");
+        const response = await fetch("https://utellum-back-end.onrender.com/api/bootcampers/");
         const data = await response.json();
         const bootcamperArray = data.payload[0];
         const bootcamperStrengthsAndWeaknesses = data.payload[1];
@@ -108,7 +108,7 @@ function App() {
     }
     if (!exists) {
       newArray.push(SWLocalObject);
-      fetch("http://localhost:3000/api/bootcampers/", {
+      fetch("https://utellum-back-end.onrender.com/api/bootcampers/", {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -131,7 +131,7 @@ function App() {
   function patchRequestHandler(description, id) {
     console.log("description", description);
     let newObject = { description: description };
-    fetch(`http://localhost:3000/api/bootcampers/${id}`, {
+    fetch(`https://utellum-back-end.onrender.com/api/bootcampers/${id}`, {
       method: "PATCH",
       headers: {
         Accept: "application/json",
@@ -174,7 +174,7 @@ function App() {
   }
 
   function deleteTopic(id) {
-    fetch("http://localhost:3000/api/bootcampers/" + id, {
+    fetch("https://utellum-back-end.onrender.com/api/bootcampers/" + id, {
       method: "DELETE",
     })
       .then((res) => res.text()) // or res.json()
