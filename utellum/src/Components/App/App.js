@@ -7,29 +7,60 @@ import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import BootcamperProfile from "../BootcamperProfile";
 import { v4 as uuidv4 } from "uuid";
-import Footer from "../Footer";
+
 
 function App() {
+  /*Declaring states that need to be used
+  bootcamperArray: state to contain an array of bootcampers on the course. Array of objects - each object is a bootcamper
+  bootcamperSW: state to contain an array of bootcampers strengths and weaknesses. Array of objects
+  input: state to contain the text in the input field of the search bar
+  filter: state to maintain the choice of dropdown in the search bar
+*/
+
   const [bootcamperArray, setBootcamperArray] = useState([]);
   const [bootcamperSW, setBootcamperSW] = useState([]);
-  const [counter, setCounter] = useState(0);
   const [input, setInput] = useState("");
   const [filter, setFilter] = useState("first_name");
 
+
+
+/*
+After mounting, this useEffect checks if there is anything in the search box (i.e. is this a first load of the page or are we resetting the search)
+If so then get the bootcamper data from the backend. This will return an array of bootcampers and an array of the strengths and weaknesses
+If the search bar is not empty then check which drop-down selection has been chosen, and filter the current state of bootcamperArray accordingly
+*/
   useEffect(() => {
-    async function getBootcamperData() {
-      const response = await fetch("https://utellum-back-end.onrender.com/api/bootcampers/");
-      const data = await response.json();
-      const bootcamperArray = data.payload[0];
-      const bootcamperStrengthsAndWeaknesses = data.payload[1];
-      setBootcamperArray(bootcamperArray);
-      setBootcamperSW(bootcamperStrengthsAndWeaknesses);
+    if (input !== "") {
+      let filteredBootcamperArray = [];
+      if (filter === "first_name" || filter === "last_name") {
+        filteredBootcamperArray = bootcamperArray.filter((element) => {
+          return element[filter].toLowerCase().includes(input);
+        });
+      } else if (filter === "strength" || filter === "weakness") {
+        filteredBootcamperArray = bootcamperArray.filter((element) => {
+          return element[filter].some((e) => e.includes(input)); //as we want to check a nested array in a key value pair, first find the key by using element[filter], then in the array check if there is some value that includes what is in the input
+        });
+      }
+      setBootcamperArray(filteredBootcamperArray);
+    } else {
+      async function getBootcamperData() {
+        const response = await fetch("https://utellum-back-end.onrender.com/api/bootcampers/");
+        const data = await response.json();
+        const bootcamperArray = data.payload[0];
+        const bootcamperStrengthsAndWeaknesses = data.payload[1];
+        setBootcamperArray(bootcamperArray);
+        setBootcamperSW(bootcamperStrengthsAndWeaknesses);
+      }
+
+      getBootcamperData();
     }
+  }, [input]);
 
-    getBootcamperData();
-  }, []);
+  /*
+  adding strengths and weakness to each bootcamper in an array
+  we do this by creating an array of the strengths, and an array of the weakness of the bootcamper, based on the bootcamperSW state. These two arrays are then added as a key value pair to the bootcamperArray state.
+  */
 
-//adding strengths and weakness to each bootcamper in an array
   for (let i = 0; i < bootcamperArray.length; i++) {
     let strengthArray = [];
     let weaknessArray = [];
@@ -50,33 +81,9 @@ function App() {
     bootcamperArray[i]["weakness"] = weaknessArray;
   }
 
-  useEffect(() => {
-    if (input !== "") {
-      let filteredBootcamperArray = [];
-      if (filter === "first_name" || filter === "last_name") {
-        filteredBootcamperArray = bootcamperArray.filter((element) => {
-          return element[filter].toLowerCase().includes(input);
-        });
-      } else if (filter === "strength" || filter === "weakness") {
-        filteredBootcamperArray = bootcamperArray.filter((element) => {
-          return element[filter].some((e) => e.includes(input));
-        });
-      }
-      setBootcamperArray(filteredBootcamperArray);
-    } else {
-      async function getBootcamperData() {
-        const response = await fetch("https://utellum-back-end.onrender.com/api/bootcampers/");
-        const data = await response.json();
-        const bootcamperArray = data.payload[0];
-        const bootcamperStrengthsAndWeaknesses = data.payload[1];
-        setBootcamperArray(bootcamperArray);
-        setBootcamperSW(bootcamperStrengthsAndWeaknesses);
-      }
-
-      getBootcamperData();
-    }
-  }, [input]);
-
+  //function to addTopic - this is used in the StrengthOrWeakness Component.
+  //We create two objects one that posts to the database (SWObject), and one that mirrors the database locally (SWLocalObject)
+  
   function addTopic(
     topic_id,
     strength,
@@ -88,24 +95,27 @@ function App() {
       topicId: topic_id,
       bootcamperId: id,
       strengthOrWeakness: strength,
-      uniqueId: uuidv4(),
+      uniqueId: uuidv4(), //adding unique ID so the SW can be referenced by an ID and deleted
     };
     let SWLocalObject = {
-      topicId: Number(topic_id),
+      topicId: +topic_id,
       bootcamper_id: id,
       strength_weakness: strength,
       topic_name: topic_name,
-      unique_id: uuidv4(),
+      unique_id: uuidv4(), //adding unique ID so the SW can be referenced by an ID and deleted
     };
-    let exists = false;
-    const newArray = [...bootcamperSW];
-    console.log("individual", individualBootcamperSW);
+    let exists = false; //boolean to check if the S or W already exists or not
+    const newArray = [...bootcamperSW]; //creating shallow copy of bootcamperSW state so we do not mutate the original state
+
+    //For loop checking if the topic already exists in the SW of an individual bootcamper.
     for (let i = 0; i < individualBootcamperSW.length; i++) {
       if (individualBootcamperSW[i].topic_name === SWLocalObject.topic_name) {
         exists = true;
-        console.log("here");
       }
     }
+
+    
+    //If the topic doesnt exist we can add the topic to the database as a strength or weakness. We also push the localobject to a newArray and set the state of BootcamperSW to the newArray, to re-render the topics once added and keep the BootcamperSW array consistent with the back end.
     if (!exists) {
       newArray.push(SWLocalObject);
       fetch("https://utellum-back-end.onrender.com/api/bootcampers/", {
@@ -115,9 +125,7 @@ function App() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(SWObject),
-      })
-        .then((response) => response.json())
-        .then((response) => console.log(JSON.stringify(response)));
+      }).then((response) => response.json());
       setBootcamperSW(newArray);
     } else {
       alert(
@@ -126,10 +134,9 @@ function App() {
     }
   }
 
-  const [hiddenForm, setHiddenForm] = useState(false);
 
+//function to deal with a PATCH request for the about me section of the profile page
   function patchRequestHandler(description, id) {
-    console.log("description", description);
     let newObject = { description: description };
     fetch(`https://utellum-back-end.onrender.com/api/bootcampers/${id}`, {
       method: "PATCH",
@@ -138,11 +145,9 @@ function App() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(newObject),
-    })
-      .then((response) => response.json())
-      .then((response) => console.log(JSON.stringify(response)));
+    }).then((response) => response.json());
 
-    console.log(bootcamperArray);
+  //This again mirrors whats happening in the backend by updating the description of the specific bootcamper in the front end in the bootcamperArray state.
     for (let i = 0; i < bootcamperArray.length; i++) {
       if (bootcamperArray[i].bootcamper_id === id) {
         bootcamperArray[i].description = description;
@@ -150,35 +155,38 @@ function App() {
     }
     let newArray = [...bootcamperArray];
     setBootcamperArray(newArray);
-    setHiddenForm(true);
+   
+
+    //Show saved in green on the page
     document.querySelector(".saved").hidden = false;
-    const myTimeout = setTimeout(endSave, 2000);
+    
+    //Timeout to show that the information has been saved and remove from screen after 2 seconds
+    setTimeout(endSave, 2000);
 
     function endSave() {
       document.querySelector(".saved").hidden = true;
     }
-    /*  document.querySelector(".description-form").hidden = true
-         document.querySelector(".visible-description").hidden = false
-         document.querySelector(".save").hidden = true */
+  
   }
 
+  //setting input state to be the value of the input field. Called in the Search Component
   function inputHandler(event) {
     let inputValue = document.querySelector(".input").value;
     setInput(inputValue.toLowerCase());
     setBootcamperArray(bootcamperArray);
   }
 
+  //seeting filter state to be the value of what is selected in the drop down. Called in the Search Component
   function searchFilterChoice() {
     let filter = document.querySelector("#search-filter").value;
     setFilter(filter);
   }
 
+  //Delete topic handler - mirror the back end with updating the state of bootcamperSW in the front end. Called in StrengthOrWeaknesses Component
   function deleteTopic(id) {
     fetch("https://utellum-back-end.onrender.com/api/bootcampers/" + id, {
       method: "DELETE",
-    })
-      .then((res) => res.text()) // or res.json()
-      .then((res) => console.log(res));
+    }).then((res) => res.text()); // or res.json()
 
     let index = 0;
     for (let i = 0; i < bootcamperSW.length; i++) {
@@ -229,7 +237,7 @@ function App() {
           element={
             <>
               <BootcamperProfile
-                hiddenForm={hiddenForm}
+               
                 patchRequestHandler={patchRequestHandler}
                 deleteTopic={deleteTopic}
                 addTopic={addTopic}

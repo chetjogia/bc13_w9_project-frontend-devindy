@@ -5,59 +5,58 @@ import StrengthOrWeakness from "../StrengthOrWeakness";
 import { useState } from "react";
 
 export function BootcamperProfile(props) {
+  //destructuring state property from the location object - this contains the user id
   const { state } = useLocation();
 
-  function bootcamperStrengthAndWeakness() {
-    const bootcamperStrengthAndWeakness = props.bootcamperSW.filter(
-      (element) => element.bootcamper_id === state.id
-    );
+  //setting states for what should be locked and hidden
+  const [locked, setLocked] = useState(true);
+  const [hidden, setHidden] = useState(true);
+ 
 
-    return bootcamperStrengthAndWeakness;
-  }
 
-  let bootcamperStrengthAndWeaknessArray = bootcamperStrengthAndWeakness();
-  console.log("checking", bootcamperStrengthAndWeaknessArray);
-
-  let bootcamperArray = props.bootcamperArray;
-  let bootcamper = bootcamperArray.filter((element) => {
+ //obtain the strength and weaknesses of individual bootcamper using the id in the state object
+  let bootcamperStrengthAndWeaknessArray = props.bootcamperSW.filter(
+    (element) => element.bootcamper_id === state.id
+  )
+  
+  //filerts the bootcamper array to only locate the bootcamper that we want to view using the state
+  let bootcamper = props.bootcamperArray.filter((element) => {
     return element.bootcamper_id === state.id;
   });
 
-  const [locked, setLocked] = useState(true);
-  const [hidden, setHidden] = useState(true);
+
 
   function correctPassword(event) {
     let password = document.querySelector(".password").value;
 
     if (password === bootcamper[0].password) {
-      setLocked(false);
-      document.querySelector(".description-form").hidden = false;
-      document.querySelector(".password").hidden = true;
-      document.querySelector(".submit-password").hidden = true;
-      document.querySelector(".logged-in").hidden = false;
-      document.querySelector(".password").value = "";
+      setLocked(false); 
+      document.querySelector(".description-form").hidden = false; //unhides the form for About Me
+      document.querySelector(".password").hidden = true; //hides password field
+      document.querySelector(".submit-password").hidden = true; //hides submit password button
+      document.querySelector(".logged-in").hidden = false; //shows user is logged in
+      document.querySelector(".password").value = ""; //sets password value to empty
     } else {
       setLocked(true);
-      document.querySelector(".password").value = "";
+      document.querySelector(".password").value = ""; //sets password value to empty
       alert("Please enter the correct password");
     }
   }
 
+  //function to hide and unhide the password input if the view and edit dropdown is selected
   function unhidePasswordInput() {
     let e = document.querySelector("#view");
     if (e.value === "view") {
-      setHidden(true);
-      setLocked(true);
-      document.querySelector(".logged-in").hidden = true;
-      document.querySelector(".description-form").hidden = true;
-      document.querySelector(".visible-description").hidden = true;
-      document.querySelector(".saved").hidden = true;
+      setHidden(true); 
+      setLocked(true); 
+      document.querySelector(".logged-in").hidden = true; //hide user being logged in
+      document.querySelector(".description-form").hidden = true; //hide the about me form
+      document.querySelector(".saved").hidden = true; //hide the word saved on screen
     } else {
-      setHidden(false);
-      document.querySelector(".logged-in").hidden = true;
+      setHidden(false); 
       document.querySelector(".password").value = "";
-      document.querySelector(".password").hidden = false;
-      document.querySelector(".submit-password").hidden = false;
+      document.querySelector(".password").hidden = false; //unhide password field when switched from view
+      document.querySelector(".submit-password").hidden = false; //unhide the button
     }
   }
 
@@ -83,19 +82,19 @@ export function BootcamperProfile(props) {
                 </select>
                 <div className="enter-password">
                   <input
-                    hidden={hidden}
+                    hidden={true}
                     className="password"
                     type="password"
                     placeholder="type password here"
                   ></input>
                   <button
                     className="submit-password"
-                    hidden={hidden}
+                    hidden={true}
                     onClick={correctPassword}
                   >
                     Submit Password
                   </button>
-                  <p hidden="true" className="logged-in">
+                  <p hidden={true} className="logged-in">
                     Logged In
                   </p>
                 </div>
