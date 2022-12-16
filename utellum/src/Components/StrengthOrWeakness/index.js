@@ -10,14 +10,19 @@ export function StrengthOrWeakness({
   state,
   deleteTopic,
 }) {
+
+  //set strength value to be true as default on render of the component, this value is used to render either strengths or weaknesses. optionid assists in selecting dropdown box for adding topics (strength or weakness)
   let strength = true;
   let optionid = "S";
 
+  //checks the category that is passed as a prop and if it is a weakness then sets strength to false and changes the optionid to W
   if (category === "Weakness") {
     strength = false;
     optionid = "W";
   }
 
+
+  //looks at the bootcampers individual strengths and weaknesses and adds the associated colour for dynamic style rendering of the div colour, avoids hardcoding the colours in the database"
   for (let i = 0; i < bootcamperStrengthAndWeaknessArray.length; i++) {
     for (let j = 0; j < topics.length; j++) {
       if (
@@ -35,6 +40,8 @@ export function StrengthOrWeakness({
       <div className="strength-profile">
         <h1>{category}:</h1>
         <ul className="topic-profile">
+
+        {/* map through the S&W array for the bootcamper and render the strengths or weakness depending on the element.strength_weakness, strength = true then strengths will render and , if strength = false then weaknesses will render */}
           {bootcamperStrengthAndWeaknessArray.map(
             (element) =>
               element.strength_weakness === strength && (
@@ -57,6 +64,8 @@ export function StrengthOrWeakness({
               )
           )}
         </ul>
+
+        {/* Creates a dropdown of topic lists with the value being the topic id */}
         <div className="topic-dropdown-button">
           <select hidden={hidden} id={optionid} name="SW">
             {topics.map((topic) => (
@@ -65,6 +74,7 @@ export function StrengthOrWeakness({
           </select>
           <button
             hidden={hidden}
+            //on click of the add button it runs addTopic with the following arguments
             onClick={() =>
               addTopic(
                 document.querySelector(`#${optionid}`).value,

@@ -6,14 +6,10 @@ import { strengths_weaknesses } from "../../TestData";
 import { Link } from "react-router-dom";
 
 export function BootcamperItem(props) {
-  function bootcamperStrengthAndWeakness() {
-    const bootcamperStrengthAndWeakness = props.bootcamperSW.filter(
-      (element) => element.bootcamper_id === props.id
-    );
-    return bootcamperStrengthAndWeakness;
-  }
 
-  let bootcamperStrengthAndWeaknessArray = bootcamperStrengthAndWeakness();
+
+  let bootcamperStrengthAndWeaknessArray = props.bootcamperSW.filter(
+    (element) => element.bootcamper_id === props.id)
 
   return (
     <div className="bootcamper-item">

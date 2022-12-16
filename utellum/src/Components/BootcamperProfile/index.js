@@ -10,18 +10,17 @@ export function BootcamperProfile(props) {
 
   //setting states for what should be locked and hidden
   const [locked, setLocked] = useState(true);
-  
+
 
  //obtain the strength and weaknesses of individual bootcamper using the id in the state object
   let bootcamperStrengthAndWeaknessArray = props.bootcamperSW.filter(
     (element) => element.bootcamper_id === state.id
   )
   
-  //filerts the bootcamper array to only locate the bootcamper that we want to view using the state
+  //filters the bootcamper array to only locate the bootcamper that we want to view using the state
   let bootcamper = props.bootcamperArray.filter((element) => {
     return element.bootcamper_id === state.id;
   });
-
 
 
   function correctPassword(event) {
@@ -45,13 +44,11 @@ export function BootcamperProfile(props) {
   function unhidePasswordInput() {
     let e = document.querySelector("#view");
     if (e.value === "view") {
-  
       setLocked(true); 
       document.querySelector(".logged-in").hidden = true; //hide user being logged in
       document.querySelector(".description-form").hidden = true; //hide the about me form
       document.querySelector(".saved").hidden = true; //hide the word saved on screen
     } else {
-
       document.querySelector(".password").value = "";
       document.querySelector(".password").hidden = false; //unhide password field when switched from view
       document.querySelector(".submit-password").hidden = false; //unhide the button

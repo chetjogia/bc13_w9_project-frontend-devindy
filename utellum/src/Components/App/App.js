@@ -54,6 +54,7 @@ If the search bar is not empty then check which drop-down selection has been cho
 
       getBootcamperData();
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [input]);
 
   /*
@@ -114,7 +115,6 @@ If the search bar is not empty then check which drop-down selection has been cho
       }
     }
 
-    
     //If the topic doesnt exist we can add the topic to the database as a strength or weakness. We also push the localobject to a newArray and set the state of BootcamperSW to the newArray, to re-render the topics once added and keep the BootcamperSW array consistent with the back end.
     if (!exists) {
       newArray.push(SWLocalObject);
@@ -237,7 +237,6 @@ If the search bar is not empty then check which drop-down selection has been cho
           element={
             <>
               <BootcamperProfile
-               
                 patchRequestHandler={patchRequestHandler}
                 deleteTopic={deleteTopic}
                 addTopic={addTopic}

@@ -19,7 +19,6 @@ export function Search({ inputHandler, searchFilterChoice }) {
         onChange={inputHandler}
         className="input"
       ></input>
-      {/* <button >Search</button> */}
     </div>
   );
 }
