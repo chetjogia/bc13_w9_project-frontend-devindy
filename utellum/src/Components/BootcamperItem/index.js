@@ -1,10 +1,8 @@
 import React from "react";
 import "./index.css";
 import TopicList from "../TopicList";
-import { useState } from "react";
-import { strengths_weaknesses } from "../../TestData";
 import { Link } from "react-router-dom";
-
+import bootcamperprofile from './default.png'
 export function BootcamperItem(props) {
 
 
@@ -14,7 +12,7 @@ export function BootcamperItem(props) {
   return (
     <div className="bootcamper-item">
       <div className="bootcamper-left-half">
-        <img className="profile-pic" src={props.image} alt="profile"></img>
+        <img className="profile-pic" src={bootcamperprofile} alt="profile"></img>
         <div className="bootcamper-info">
           <div>
             <h1 className="bootcamper-one">
