@@ -2,30 +2,35 @@ import React from "react";
 import "./index.css";
 import TopicList from "../TopicList";
 import { Link } from "react-router-dom";
-import bootcamperprofile from './default.png'
+import bootcamperprofile from "./default.png";
 export function BootcamperItem(props) {
-
-
   let bootcamperStrengthAndWeaknessArray = props.bootcamperSW.filter(
-    (element) => element.bootcamper_id === props.id)
+    (element) => element.bootcamper_id === props.id
+  );
 
   return (
     <div className="bootcamper-item">
       <div className="bootcamper-left-half">
-        <img className="profile-pic" src={bootcamperprofile} alt="profile"></img>
+        <img
+          className="profile-pic"
+          src={bootcamperprofile}
+          alt="profile"
+        ></img>
         <div className="bootcamper-info">
-          <div>
+          <div className="bootcamper-heading">
             <h1 className="bootcamper-one">
               {props.firstName} {props.lastName}
             </h1>
           </div>
           <div className="button-div">
-            <Link to={`/profile/${props.id}`} state={{ id: props.id }}>
-              <button className="info-button">View</button>
+            <Link
+              className="info-button"
+              to={`/profile/${props.id}`}
+              state={{ id: props.id }}
+            >
+              View
             </Link>
-            <Link>
-              <button className="info-button">Message</button>
-            </Link>
+            <Link className="info-button">Message</Link>
           </div>
         </div>
       </div>

@@ -1,126 +1,131 @@
-@import '../../colour.css';
-:root{
-    --item-width: 40%;
+@import "../../colour.css";
+:root {
+  --item-width: 40%;
 }
 
-.bootcamper-item{
-    display:flex;
-    border: solid;
-    border-radius: 30px;
-    background-position: center;
-    border-color: var(--siteColor10);
-    width: 40%;
-   gap:30px;
-   overflow: hidden;
-   background-color:white;
-   box-shadow: 5px 5px 5px #cec3ca;
-   
+.bootcamper-item {
+  display: flex;
+  border: solid;
+  border-radius: 30px;
+  background-position: center;
+  border-color: var(--siteColor10);
+  height: 15vw;
+  width: 60%;
+
+  overflow: hidden;
+  background-color: white;
+  box-shadow: 5px 5px 5px #cec3ca;
 }
 
-.bootcamper-left-half{
-    display: flex;
-    flex-direction: row;
-    align-self: left;
-   background-color: none;
+.bootcamper-left-half {
+  display: flex;
+  height: 100%;
+  width: 60%;
+  flex-direction: row;
+  align-self: left;
+  background-color: none;
 }
 
-.profile-pic{
-    height: 150px;
-    width:150px;
-    border-radius: 50%;
-    border: 5px solid var(--rainbowG);
-    margin: 30px;
-    margin-left:35px;
+.profile-pic {
+  height: 70%;
+  align-self: center;
+  margin: 8%;
+  border-radius: 50%;
+  border: 5px solid var(--rainbowG);
 }
 
-.bootcamper-info{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+.bootcamper-info {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5%;
+  padding-right: 10%;
 }
 
-.bootcamper-one{
-    display: flex;
-    font-size: 2.2em;
-    font-weight: bold;
-    text-align: center;
-    width: 250px;
-    align-items: center;
-    justify-content: center;
-    margin:0px;
-    gap:10px;
+.bootcamper-one {
+  font-size: calc(0.2rem + 2vw);
+  font-weight: bold;
+  width: 100%;
+  height: 100%;
+
+  text-align: center;
 }
 
-
-
-nav>ul>li>a{
-    font-size: 20px;
-    text-decoration: none;
-    color:black;
+.bootcamper-heading {
+  display: flex;
+  height: 30%;
+  width: 100%;
 }
 
-nav>ul>li>a:hover{
-    font-size: 20px;
-    text-decoration: none;
-    color:red;
+nav > ul > li > a {
+  font-size: 20px;
+  text-decoration: none;
+  color: black;
 }
 
-.button-div{
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-    justify-content: center;
-    
+nav > ul > li > a:hover {
+  font-size: 20px;
+  text-decoration: none;
+  color: red;
 }
 
-
-.info-button{
-    height:40px;    
-    width:100px;
-    background-color: var(--siteColor30);
-    border-radius: 10px;
-    font-size: 20px;
+.button-div {
+  height: 25%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 2%;
+  justify-content: center;
 }
 
-.link-view{
-    height:40px;    
-    width:80px;
-    background-color: lightblue;
-    border-radius: 10px;
+.info-button {
+  height: 100%;
+  line-height: 270%;
+  width: 50%;
+  background-color: var(--siteColor30);
+  border-radius: 10px;
+  text-align: center;
+  font-size: calc(0.3rem + 0.7vw);
+  vertical-align: center;
+  text-decoration: none;
+  color: black;
 }
 
-.link-message{
-    height:40px;    
-    width:80px;
-    background-color: lightblue;
-    border-radius: 10px;
+.link-view {
+  height: 40px;
+  width: 80px;
+  background-color: lightblue;
+  border-radius: 10px;
 }
 
-.bootcamper-item>img{
-    align-self:center;
-    height: 100px;
-    width:100px;
-    border-radius: 100px;
-
+.link-message {
+  height: 40px;
+  width: 80px;
+  background-color: lightblue;
+  border-radius: 10px;
 }
 
-
-
-.bootcamper-right-half{
-    width:100%;
-   
-   background-color:var(--siteColor60);
-    display:flex;
-    
-   
+.bootcamper-item > img {
+  align-self: center;
+  height: 100px;
+  width: 100px;
+  border-radius: 100px;
 }
 
-.topic-list{
-    display:flex;
-    width:100%;
+.bootcamper-right-half {
+  width: 40%;
+
+  background-color: var(--siteColor60);
+  display: flex;
 }
 
-.strength>h2{
-    font-size: 20px;
-    
+.topic-list {
+  display: flex;
+  width: 100%;
+}
+
+.strength > h2 {
+  font-size: calc(100% + 1vw);
 }
